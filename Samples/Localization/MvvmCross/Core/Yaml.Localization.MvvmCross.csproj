@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--/-:cnd -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MvvmCross" Version="5.7.0" />
+    <PackageReference Include="Acr.UserDialogs" Version="6.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Locales\en-US.yaml" />
+    <EmbeddedResource Include="Locales\ru-RU.yaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Yaml.Localization\Yaml.Localization.csproj" />
+    <ProjectReference Include="..\..\..\..\Yaml.Parser\Yaml.Parser.csproj" />
+    <ProjectReference Include="..\..\..\..\MvvmCross.Plugins\YamlLocalization\YamlLocalization.csproj" />
+  </ItemGroup>
+</Project>

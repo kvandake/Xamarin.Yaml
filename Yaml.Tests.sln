@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaml.Parser.Tests", "Tests\Yaml.Parser.Tests\Yaml.Parser.Tests.csproj", "{D308DC23-689A-4094-9A1F-C3421D6765E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{818C7CA7-2447-4039-A1B2-0024B1DE9550}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaml.Parser", "Yaml.Parser\Yaml.Parser.csproj", "{98E92B69-5BD7-4788-AFAD-E072711ABB21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaml.Localization.Tests", "Tests\Yaml.Localization.Tests\Yaml.Localization.Tests.csproj", "{0B59D6E5-5ECE-4C40-BF3F-C5F92C89D749}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaml.Localization", "Yaml.Localization\Yaml.Localization.csproj", "{1CEDAB20-7E3D-4EC5-8657-9B47F5138899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaml.Localization.Locales", "Tests\Yaml.Localization.Locales\Yaml.Localization.Locales.csproj", "{41C35156-FE10-4D82-B984-5805028439D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D308DC23-689A-4094-9A1F-C3421D6765E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D308DC23-689A-4094-9A1F-C3421D6765E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D308DC23-689A-4094-9A1F-C3421D6765E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D308DC23-689A-4094-9A1F-C3421D6765E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98E92B69-5BD7-4788-AFAD-E072711ABB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98E92B69-5BD7-4788-AFAD-E072711ABB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98E92B69-5BD7-4788-AFAD-E072711ABB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98E92B69-5BD7-4788-AFAD-E072711ABB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B59D6E5-5ECE-4C40-BF3F-C5F92C89D749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B59D6E5-5ECE-4C40-BF3F-C5F92C89D749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B59D6E5-5ECE-4C40-BF3F-C5F92C89D749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B59D6E5-5ECE-4C40-BF3F-C5F92C89D749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CEDAB20-7E3D-4EC5-8657-9B47F5138899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CEDAB20-7E3D-4EC5-8657-9B47F5138899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CEDAB20-7E3D-4EC5-8657-9B47F5138899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CEDAB20-7E3D-4EC5-8657-9B47F5138899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41C35156-FE10-4D82-B984-5805028439D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41C35156-FE10-4D82-B984-5805028439D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41C35156-FE10-4D82-B984-5805028439D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41C35156-FE10-4D82-B984-5805028439D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98E92B69-5BD7-4788-AFAD-E072711ABB21} = {818C7CA7-2447-4039-A1B2-0024B1DE9550}
+		{1CEDAB20-7E3D-4EC5-8657-9B47F5138899} = {818C7CA7-2447-4039-A1B2-0024B1DE9550}
+	EndGlobalSection
+EndGlobal
