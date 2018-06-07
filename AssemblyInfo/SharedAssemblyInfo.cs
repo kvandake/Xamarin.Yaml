@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyConfiguration("Release")]
+[assembly: AssemblyCompany("kvandake")]
+[assembly: AssemblyProduct("Xamarin.Yaml")]
+[assembly: AssemblyCopyright("Copyright (c) 2018, kvandake")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

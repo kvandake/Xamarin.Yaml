@@ -92,7 +92,7 @@
             {
                 if (locale == null)
                 {
-                    throw FriendlyTranslateException.NotFoundLocale();
+                    throw YamlTranslateException.NotFoundLocale();
                 }
 
                 if (locale == this.CurrentLocale)

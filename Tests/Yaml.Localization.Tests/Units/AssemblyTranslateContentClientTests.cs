@@ -44,7 +44,7 @@
         public async Task NullSource_ThrowNotFound()
         {
             // Arrange & Act & Assert
-            Assert.ThrowsAsync<FriendlyTranslateException>(async () =>
+            Assert.ThrowsAsync<YamlTranslateException>(async () =>
             {
                 await AssemblyTranslateContentClient.GetAssemblyContent(this.GetType().Assembly, null);
             });
@@ -54,7 +54,7 @@
         public async Task NotFoundEmbeddedResource_ThrowNotFound()
         {
             // Arrange & Act & Assert
-            Assert.ThrowsAsync<FriendlyTranslateException>(async () =>
+            Assert.ThrowsAsync<YamlTranslateException>(async () =>
             {
                 await AssemblyTranslateContentClient.GetAssemblyContent(this.GetType().Assembly, "bad.yaml");
             });

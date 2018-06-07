@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Xamarin.Yaml.Settings</id>
+    <version>$version$</version>
+    <title>Xamarin Yaml Settings</title>
+    <authors>kvandake</authors>
+    <owners>kvandake</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://raw.githubusercontent.com/kvandake/Xamarin.Yaml/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/kvandake/Xamarin.Yaml</projectUrl>
+    <description>Xamarin Yaml Settings</description>
+    <summary>Xamarin Yaml Settings</summary>
+    <releaseNotes>Xamarin Yaml Settings</releaseNotes>
+    <copyright></copyright>
+    <language></language>
+    <tags>xamarin,yaml,settings,config,property,configuration</tags>
+    <dependencies>
+      <group targetFramework="netstandard2.0">
+        <dependency id="Xamarin.Yaml.Parser" version="[$version$]" />
+        <dependency id="Microsoft.CSharp" version="4.5.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+      <file src="Yaml.Settings/bin/Release/netstandard2.0/Xamarin.Yaml.Settings.*" target="lib\netstandard2.0" />
+  </files>
+</package>

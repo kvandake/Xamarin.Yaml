@@ -13,7 +13,7 @@
         {
             if (files == null || files.Count == 0)
             {
-                throw new FriendlyTranslateException("No locales have been found. Make sure you´ve got a folder in the host assembly");
+                throw new YamlTranslateException("No locales have been found. Make sure you´ve got a folder in the host assembly");
             }
 
             var result = new Dictionary<string, ILocale>();
@@ -23,7 +23,7 @@
 
                 if (result.ContainsKey(localeName))
                 {
-                    throw new FriendlyTranslateException($"The locales contains a duplicated locale '{localeName}'");
+                    throw new YamlTranslateException($"The locales contains a duplicated locale '{localeName}'");
                 }
 
                 result[localeName] = new Locale(localeName, resource);

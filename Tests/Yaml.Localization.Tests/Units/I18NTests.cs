@@ -26,7 +26,7 @@
             });
 
             // Act & Assert
-            Assert.ThrowsAsync<FriendlyTranslateException>(async () => { await I18N.Instance.ChangeLocale("fr"); });
+            Assert.ThrowsAsync<YamlTranslateException>(async () => { await I18N.Instance.ChangeLocale("fr"); });
         }
 
         [Test]
@@ -56,7 +56,7 @@
             });
 
             // Act & Assert
-            Assert.ThrowsAsync<FriendlyTranslateException>(async () => { await I18N.Instance.ChangeLocale("en"); });
+            Assert.ThrowsAsync<YamlTranslateException>(async () => { await I18N.Instance.ChangeLocale("en"); });
         }
 
         [Test]

@@ -76,14 +76,14 @@
         {
             if (string.IsNullOrWhiteSpace(source))
             {
-                throw new FriendlyTranslateException($"Source is null in this assembly:{assembly}");
+                throw new YamlTranslateException($"Source is null in this assembly:{assembly}");
             }
 
             using (var stream = assembly.GetManifestResourceStream(source))
             {
                 if (stream == null)
                 {
-                    throw new FriendlyTranslateException($"Not found the locale for the source <{source}> in assembly:{assembly.FullName}");
+                    throw new YamlTranslateException($"Not found the locale for the source <{source}> in assembly:{assembly.FullName}");
                 }
 
                 using (var reader = new StreamReader(stream))

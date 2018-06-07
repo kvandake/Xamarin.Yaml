@@ -34,7 +34,7 @@
             var assemblyResource = assembly.GetManifestResourceNames().FirstOrDefault(x => x.Contains(assemblyFilePath));
             if (string.IsNullOrEmpty(assemblyResource))
             {
-                throw new FriendlyTranslateException();
+                throw new YamlTranslateException();
             }
 
             return new[] {await AssemblyTranslateContentClient.GetAssemblyContent(assembly, assemblyResource)};

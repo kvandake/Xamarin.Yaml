@@ -6,9 +6,17 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CodeAnalysisRuleSet>..\Yaml.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <DocumentationFile>bin\Release\netstandard2.0\Xamarin.Yaml.Parser.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\AssemblyInfo\AssemblyInfo.cs">
-      <Link>Properties\AssemblyInfo.cs</Link>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
 </Project>
