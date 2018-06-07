@@ -1,8 +1,10 @@
 ﻿namespace Xamarin.Yaml.Parser
 {
+    using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Diagnostics;
+    using System.Dynamic;
     using System.Linq;
     using Xamarin.Yaml.Parser.Attributes;
     using Xamarin.Yaml.Parser.Core;
@@ -53,6 +55,18 @@
             return this.ThrowWhenKeyNotFound
                 ? throw new KeyNotFoundException($"Key <{key}> not found in the current locale")
                 : string.Empty;
+        }
+
+        public static dynamic DeserializeContent(string content)
+        {
+            var expandoObject = new ExpandoObject() as IDictionary<string, object>;
+            var nodes = GetNodes(content);
+            foreach (var node in nodes)
+            {
+                TryGetContentItemsAsDynamic(node, ref expandoObject);
+            }
+
+            return expandoObject;
         }
 
         private IDictionary<string, string> ParseContent(string content)
@@ -130,6 +144,54 @@
                     foreach (var colItem in collection)
                     {
                         this.TryParseContentItems(colItem, ref dict, prefix);
+                    }
+
+                    break;
+            }
+        }
+        
+        private static void TryGetContentItemsAsDynamic(YNode node, ref IDictionary<string, object> expandoObject)
+        {
+            switch (node)
+            {
+                case YKeyValuePair keyValuePair:
+                    string key = null;
+                    try
+                    {
+                        key = (string) keyValuePair.Key;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                    }
+
+                    if (keyValuePair.Value is YScalar valueScalar)
+                    {
+                        expandoObject[key] = valueScalar.Value;
+                    }
+                    else
+                    {
+                        var mapExpandoObject = new ExpandoObject() as IDictionary<string, object>;
+                        expandoObject[key] = mapExpandoObject;
+                        TryGetContentItemsAsDynamic(keyValuePair.Value, ref mapExpandoObject);
+                    }
+
+                    break;
+                case YSequence sequence:
+                    // TODO: need support Enum fields
+                    throw new NotSupportedException();
+                case YMapping mapping:
+                    foreach (var mapItem in mapping)
+                    {
+                        TryGetContentItemsAsDynamic(mapItem, ref expandoObject);
+                    }
+
+                    break;
+
+                case IEnumerable<YNode> collection:
+                    foreach (var colItem in collection)
+                    {
+                        TryGetContentItemsAsDynamic(colItem, ref expandoObject);
                     }
 
                     break;

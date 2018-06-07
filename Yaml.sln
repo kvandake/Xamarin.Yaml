@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaml.Parser", "Yaml.Parser\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaml.Localization", "Yaml.Localization\Yaml.Localization.csproj", "{EA9B7975-A6F3-4481-81FB-310934A4C6B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaml.Settings", "Yaml.Settings\Yaml.Settings.csproj", "{C43B8653-45FD-4A66-B078-7B10E0701F4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{EA9B7975-A6F3-4481-81FB-310934A4C6B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA9B7975-A6F3-4481-81FB-310934A4C6B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA9B7975-A6F3-4481-81FB-310934A4C6B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C43B8653-45FD-4A66-B078-7B10E0701F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C43B8653-45FD-4A66-B078-7B10E0701F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C43B8653-45FD-4A66-B078-7B10E0701F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C43B8653-45FD-4A66-B078-7B10E0701F4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

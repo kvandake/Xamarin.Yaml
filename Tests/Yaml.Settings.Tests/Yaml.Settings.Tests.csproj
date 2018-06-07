@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D308DC23-689A-4094-9A1F-C3421D6765E9}</ProjectGuid>
+    <ProjectGuid>{D91E49AB-C123-4607-9DF6-93BF9A4F2AD1}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Yaml.Parser.Tests</RootNamespace>
-    <AssemblyName>Yaml.Parser.Tests</AssemblyName>
+    <RootNamespace>Yaml.Settings.Tests</RootNamespace>
+    <AssemblyName>Yaml.Settings.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,24 +30,31 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Dynamic" />
     <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Units\YParserTests.cs" />
-    <Compile Include="Units\TokenizerTests.cs" />
+    <Compile Include="YamlSettingsTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Yaml.Settings\Yaml.Settings.csproj">
+      <Project>{FF9E7603-2B06-4062-A105-76DDC5E07419}</Project>
+      <Name>Yaml.Settings</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Yaml.Parser\Yaml.Parser.csproj">
       <Project>{98E92B69-5BD7-4788-AFAD-E072711ABB21}</Project>
       <Name>Yaml.Parser</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <EmbeddedResource Include="Config\secrets.yaml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Units\" />
+    <EmbeddedResource Include="Config\database.yaml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

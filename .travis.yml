@@ -7,3 +7,4 @@ script:
   - xbuild /p:Configuration=Debug Yaml.Tests.sln
   - mono ./testrunner/NUnit.ConsoleRunner.3.8.0/tools/nunit3-console.exe ./Tests/Yaml.Localization.Tests/bin/Debug/Yaml.Localization.Tests.dll
   - mono ./testrunner/NUnit.ConsoleRunner.3.8.0/tools/nunit3-console.exe ./Tests/Yaml.Parser.Tests/bin/Debug/Yaml.Parser.Tests.dll
+  - mono ./testrunner/NUnit.ConsoleRunner.3.8.0/tools/nunit3-console.exe ./Tests/Yaml.Settings.Tests/bin/Debug/Yaml.Settings.Tests.dll

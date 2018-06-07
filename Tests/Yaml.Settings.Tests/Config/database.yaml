@@ -1,0 +1,18 @@
+default: &default
+  database_name: dev_database
+  pool: 5
+  username: username
+  password: password123
+  
+development:
+  <<: *default
+  
+staging:
+  <<: *default
+  database_name: staging_database
+  
+production:
+  <<: *default
+  database_name: prod_database
+  username: secret_username
+  password: secret_password123

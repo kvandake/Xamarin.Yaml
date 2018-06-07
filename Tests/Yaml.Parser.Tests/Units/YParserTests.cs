@@ -1,5 +1,7 @@
 ﻿namespace Yaml.Parser.Tests.Units
 {
+    using System.Collections.Generic;
+    using Microsoft.CSharp.RuntimeBinder;
     using NUnit.Framework;
     using Xamarin.Yaml.Parser;
 
@@ -286,6 +288,46 @@ parent:
             var parser = CreateParser(localeContent1, localeContent2);
             var value = parser.FindValue("parent.child");
             Assert.AreEqual("value2", value);
+        }
+        
+        [Test]
+        public void Check_DeserializeContent()
+        {
+            const string content = @"
+# Comment 1
+parent:
+  Test0: Test0 Value
+  Test1:
+    Test2: Test2 Value
+    Test4: Test4 Value
+";
+            // Act
+            var dynamicContent = Parser.DeserializeContent(content);
+            
+            // Assert
+            Assert.AreEqual("Test0 Value", (string)dynamicContent.parent.Test0);
+            Assert.AreEqual("Test0 Value", (string) ((IDictionary<string, dynamic>)dynamicContent)["parent"].Test0);
+            Assert.AreEqual("Test2 Value", (string)dynamicContent.parent.Test1.Test2);
+            Assert.AreEqual("Test4 Value",(string)dynamicContent.parent.Test1.Test4);
+        }
+        
+        [Test]
+        public void Check_DeserializeContent_NotFoundKey()
+        {
+            const string content = @"
+# Comment 1
+parent:
+  Test1: Test1 Value
+";
+            
+            // Act
+            var dynamiContent = Parser.DeserializeContent(content);
+            
+            // Assert
+            Assert.Throws<RuntimeBinderException>(() =>
+            {
+                var v = (string) dynamiContent.parent.Test2;
+            });
         }
 
         private static Parser CreateParser(params string[] content)
