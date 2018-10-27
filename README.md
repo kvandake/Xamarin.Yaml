@@ -85,7 +85,7 @@ var assemblyConfig = new AssemblyContentConfig(assembly)
     ResourceFolder = "Locales"
 };
 
-FriendlyLocale.I18N.Initialize(assemblyConfig);
+I18N.Initialize(assemblyConfig);
 ```
 
 ### Assets resources
