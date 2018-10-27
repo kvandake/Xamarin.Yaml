@@ -14,7 +14,7 @@ Features:
 - Support **Embedded Resources**.
 
 ## Sample
-[Sample project](FriendlyLocale.Sample)
+[Sample project](Samples)
 ![screen](docs/screen.png)
 
 ## Yaml as the foundation
@@ -66,9 +66,9 @@ SecondViewModel:
 ```
 
 ## Install
-https://www.nuget.org/packages/FriendlyLocale
+https://www.nuget.org/packages/Xamarin.Yaml.Localization/
 ```
-PM> Install-Package FriendlyLocale
+PM> Install-Package Xamarin.Yaml.Localization
 ```
 
 To use, simply reference the nuget package in each of your platform projects.
@@ -77,7 +77,7 @@ To use, simply reference the nuget package in each of your platform projects.
 ## Setup
 
 ### Embedded resources from Assembly
-[AssemblyContentConfig.cs](FriendlyLocale/Configs/AssemblyContentConfig.cs)
+[AssemblyContentConfig.cs](Yaml.Localization/Configs/AssemblyContentConfig.cs)
 ```cs
 var assembly = this.GetType().GetTypeInfo().Assembly;
 var assemblyConfig = new AssemblyContentConfig(assembly)
@@ -90,7 +90,7 @@ FriendlyLocale.I18N.Initialize(assemblyConfig);
 
 ### Assets resources
 
-[AssetsContentConfig.cs](FriendlyLocale/Configs/AssetsContentConfig.cs)
+[AssetsContentConfig.cs](Yaml.Localization/Configs/AssetsContentConfig.cs)
 
 ```cs
 var assetsConfig = new AssetsContentConfig
@@ -98,16 +98,16 @@ var assetsConfig = new AssetsContentConfig
     ResourceFolder = "Locales"
 };
 
-FriendlyLocale.I18N.Initialize(assetsConfig);
+I18N.Initialize(assetsConfig);
 ```
 
 ### Remote resources
 
-[RemoteContentConfig.cs](FriendlyLocale/Configs/RemoteContentConfig.cs)
+[RemoteContentConfig.cs](Yaml.Localization/Configs/RemoteContentConfig.cs)
 
 #### Offline mode is supported
 
-[OfflineContentConfig.cs](FriendlyLocale/Configs/OfflineContentConfig.cs)
+[OfflineContentConfig.cs](Yaml.Localization/Configs/OfflineContentConfig.cs)
 
 - ##### Assets file
 ```cs
@@ -129,7 +129,7 @@ var remoteConfig = new RemoteContentConfig
     }
 };
 // offlineConfig - optional
-FriendlyLocale.I18N.Initialize(remoteConfig, offlineConfig);
+I18N.Initialize(remoteConfig, offlineConfig);
 ```
 
 ### Additional settings
@@ -141,10 +141,10 @@ All config files includes this properties:
 Change Locale
 ```cs
 // basic
-await FriendlyLocale.I18N.ChangeLocale("en");
+await I18N.Instance.ChangeLocale("en");
 
 // offline mode for remote
-await FriendlyLocale.I18N.ChangeLocale("offline");
+await I18N.Instance.ChangeLocale("offline");
 ```
 Change Locale with download progress
 ```cs
@@ -153,19 +153,19 @@ progress.ProgressChanged += (s, e) =>
 {
     Console.WriteLine($"Download progress: {e}");
 };
-await this.I18N.ChangeLocale("en", progress);
+await I18N.Instance.ChangeLocale("en", progress);
 ```
 Translate
 ```cs
-var value = FriendlyLocale.I18N.Instance.Translate("key");
+var value = I18N.Instance.Translate("key");
 
 // en.yaml:
 //   key:
 //     innerkey: "InnerValue"
 //     more:
 //       morekey: "MoreValue"
-var innerValue = FriendlyLocale.I18N.Instance.Translate("key.innerkey"); // InnerValue
-var moreValue = FriendlyLocale.I18N.Instance.Translate("key.more.morekey"); // MoreValue
+var innerValue = I18N.Instance.Translate("key.innerkey"); // InnerValue
+var moreValue = I18N.Instance.Translate("key.more.morekey"); // MoreValue
 ```
 
 ## Localization file syntax
