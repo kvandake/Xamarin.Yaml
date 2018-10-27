@@ -62,15 +62,15 @@
             var locales = new List<ILocale>();
             foreach (var locale in this.contentConfig.Locales)
             {
-                var friendlyLocale = new RemoteLocale(locale.Key, locale.Value)
+                var remoteLocale = new RemoteLocale(locale.Key, locale.Value)
                 {
                     CacheFilePrefix = this.contentConfig.CacheFilePrefix
                 };
 
                 // set status
-                friendlyLocale.Downloaded = this.platformCacheFileManager.ContainsFile(friendlyLocale.CacheSource);
+                remoteLocale.Downloaded = this.platformCacheFileManager.ContainsFile(remoteLocale.CacheSource);
 
-                locales.Add(friendlyLocale);
+                locales.Add(remoteLocale);
             }
 
             return locales;

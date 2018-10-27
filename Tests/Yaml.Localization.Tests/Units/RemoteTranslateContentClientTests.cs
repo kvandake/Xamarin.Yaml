@@ -28,7 +28,7 @@
         }
 
         public const string TestLocaleUrl =
-            "https://raw.githubusercontent.com/kvandake/friendly-locale/master/Sample.Basic/FriendlyLocale.Sample.Core/Locales/en.yaml";
+            "https://raw.githubusercontent.com/kvandake/Xamarin.Yaml/master/Samples/Localization/Basic/Core/Locales/en.yaml";
 
         private RemoteTranslateContentClient remoteTranslateContentClient;
         private RemoteLocale remoteLocale;

@@ -105,12 +105,12 @@
                 ResourceFolder = "Locales"
             });
 
-            var friendlyLocale = I18N.Instance;
+            var i18N = I18N.Instance;
 
-            await friendlyLocale.ChangeLocale("en");
+            await i18N.ChangeLocale("en");
 
             // Act
-            var value = friendlyLocale.Translate("ViewModel.Locale");
+            var value = i18N.Translate("ViewModel.Locale");
 
             // Assert
             Assert.AreEqual("en", value);
@@ -129,12 +129,12 @@
                 }
             });
 
-            var friendlyLocale = I18N.Instance;
+            var i18N = I18N.Instance;
 
-            await friendlyLocale.ChangeLocale("en");
+            await i18N.ChangeLocale("en");
 
-            // Act & friendlyLocale.Translate("ViewModel.Locale.BadKey");
-            Assert.Throws<KeyNotFoundException>(() => { friendlyLocale.Translate("ViewModel.Locale.BadKey"); });
+            // Act & i18N.Translate("ViewModel.Locale.BadKey");
+            Assert.Throws<KeyNotFoundException>(() => { i18N.Translate("ViewModel.Locale.BadKey"); });
         }
         
         [Test]
@@ -151,10 +151,10 @@
                 }
             });
 
-            var friendlyLocale = I18N.Instance;
-            await friendlyLocale.ChangeLocale("en");
+            var i18N = I18N.Instance;
+            await i18N.ChangeLocale("en");
 
-            // Act & friendlyLocale.Translate("ViewModel.Locale.BadKey");
+            // Act & i18N.Translate("ViewModel.Locale.BadKey");
             Assert.GreaterOrEqual(traces.Count, 0);
         }
 
@@ -167,15 +167,15 @@
                 ResourceFolder = "Locales"
             });
 
-            var friendlyLocale = I18N.Instance;
+            var i18N = I18N.Instance;
 
-            await friendlyLocale.ChangeLocale("en");
+            await i18N.ChangeLocale("en");
 
             // Act
-            var value = friendlyLocale.Translate("ViewModel.Locale");
+            var value = i18N.Translate("ViewModel.Locale");
             Assert.AreEqual("en", value);
-            await friendlyLocale.ChangeLocale("ru");
-            value = friendlyLocale.Translate("ViewModel.Locale");
+            await i18N.ChangeLocale("ru");
+            value = i18N.Translate("ViewModel.Locale");
 
             // Assert
             Assert.AreEqual("ru", value);
@@ -190,13 +190,13 @@
                 ResourceFolder = "Locales"
             });
 
-            var friendlyLocale = I18N.Instance;
-            friendlyLocale.FallbackLocale = "en";
+            var i18N = I18N.Instance;
+            i18N.FallbackLocale = "en";
 
-            await friendlyLocale.ChangeLocale("fr");
+            await i18N.ChangeLocale("fr");
 
             // Act
-            var value = friendlyLocale.Translate("ViewModel.Locale");
+            var value = i18N.Translate("ViewModel.Locale");
 
             // Assert
             Assert.AreEqual("en", value);
@@ -211,11 +211,11 @@
                 ResourceFolder = "Locales"
             });
 
-            var friendlyLocale = I18N.Instance;
-            await friendlyLocale.ChangeLocale("en");
+            var i18N = I18N.Instance;
+            await i18N.ChangeLocale("en");
 
             // Act
-            var value = friendlyLocale.Translate("ViewModel.Test1.Test2.TestArgs", 5);
+            var value = i18N.Translate("ViewModel.Test1.Test2.TestArgs", 5);
 
             // Assert
             Assert.AreEqual("Any 5", value);
@@ -230,11 +230,11 @@
                 ResourceFolder = "Locales"
             });
 
-            var friendlyLocale = I18N.Instance;
-            await friendlyLocale.ChangeLocale("en");
+            var i18N = I18N.Instance;
+            await i18N.ChangeLocale("en");
 
             // Act
-            var value = friendlyLocale.TranslateNamingFormat("ViewModel.Test1.Test2.TestObject", new {foo = "foo value", bar = "bar value"});
+            var value = i18N.TranslateNamingFormat("ViewModel.Test1.Test2.TestObject", new {foo = "foo value", bar = "bar value"});
 
             // Assert
             Assert.AreEqual("Any foo value\nAny bar value", value);
@@ -249,11 +249,11 @@
                 ResourceFolder = "Locales"
             });
 
-            var friendlyLocale = I18N.Instance;
-            await friendlyLocale.ChangeLocale("en");
+            var i18N = I18N.Instance;
+            await i18N.ChangeLocale("en");
 
             // Act
-            var value = friendlyLocale.TranslateNamingFormat("ViewModel.Test1.Test2.TestObject", new {foo = "foo value"});
+            var value = i18N.TranslateNamingFormat("ViewModel.Test1.Test2.TestObject", new {foo = "foo value"});
 
             // Assert
             Assert.AreEqual("Any foo value\nAny {bar}", value);
@@ -268,11 +268,11 @@
                 ResourceFolder = "Locales"
             });
 
-            var friendlyLocale = I18N.Instance;
-            await friendlyLocale.ChangeLocale("en");
+            var i18N = I18N.Instance;
+            await i18N.ChangeLocale("en");
 
             // Act
-            var value = friendlyLocale.Translate("ViewModel.Locale", 5);
+            var value = i18N.Translate("ViewModel.Locale", 5);
 
             // Assert
             Assert.AreEqual("en", value);
@@ -288,11 +288,11 @@
                 ResourceFolder = "Locales"
             });
 
-            var friendlyLocale = I18N.Instance;
-            await friendlyLocale.ChangeLocale("en");
+            var i18N = I18N.Instance;
+            await i18N.ChangeLocale("en");
 
             // Act
-            var value = friendlyLocale.Translate("ViewModel.Locale");
+            var value = i18N.Translate("ViewModel.Locale");
 
             // Assert
             Assert.AreEqual("en", value);
@@ -307,20 +307,20 @@
                 ResourceFolder = "Locales"
             });
 
-            var friendlyLocale = I18N.Instance;
+            var i18N = I18N.Instance;
 
-            await friendlyLocale.ChangeLocale("en");
+            await i18N.ChangeLocale("en");
 
             // Act
-            var valueCatEn = friendlyLocale.TranslateEnum(Animal.Cat);
-            var valueDogEn = friendlyLocale.TranslateEnum(Animal.Dog);
-            var valueMonkeyEn = friendlyLocale.TranslateEnum(Animal.Monkey);
+            var valueCatEn = i18N.TranslateEnum(Animal.Cat);
+            var valueDogEn = i18N.TranslateEnum(Animal.Dog);
+            var valueMonkeyEn = i18N.TranslateEnum(Animal.Monkey);
             
-            await friendlyLocale.ChangeLocale("ru");
+            await i18N.ChangeLocale("ru");
             
-            var valueCatRu = friendlyLocale.TranslateEnum(Animal.Cat);
-            var valueDogRu = friendlyLocale.TranslateEnum(Animal.Dog);
-            var valueMonkeyRu = friendlyLocale.TranslateEnum(Animal.Monkey);
+            var valueCatRu = i18N.TranslateEnum(Animal.Cat);
+            var valueDogRu = i18N.TranslateEnum(Animal.Dog);
+            var valueMonkeyRu = i18N.TranslateEnum(Animal.Monkey);
 
             // Assert
             Assert.AreEqual("Cat Value", valueCatEn);
